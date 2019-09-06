@@ -12,10 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('test');
 });
 
 Route::get('activate/{email}/{activationCode}','ActivationController@activate');
+Route::get('/forgot-password','ForgotPasswordController@index');
+Route::post('/forgot-password','ForgotPasswordController@forgotPassword');
+Route::get('reset/{email}/{activationCode}','ForgotPasswordController@reset');
+Route::post('reset/{email}/{activationCode}','ForgotPasswordController@postreset');
 
 Route::get('/register','RegisterController@index');
 Route::post('/register','RegisterController@store');
